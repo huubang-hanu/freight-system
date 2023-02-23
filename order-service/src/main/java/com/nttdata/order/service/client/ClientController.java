@@ -24,7 +24,13 @@ public class ClientController {
 
 
     @GET
-    public Response onClientSide() {
-        return service.doSomething();
+    public Response fetchAllItem() {
+        return service.getAllItem();
+    }
+
+    @GET
+    @Path("/ids")
+    public Response fetchAllItemIds() {
+        return service.getAllItemIds();
     }
 }

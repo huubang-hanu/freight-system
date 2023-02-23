@@ -23,14 +23,12 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 
 
 @Path("item")
+@ApplicationScoped
 @OpenAPIDefinition(info = @Info(title = "Item Management endpoint", version = "1.0"))
 public class ItemController {
-	private final  ItemService itemService;
 
 	@Inject
-	public ItemController(ItemService itemService) {
-		this.itemService = itemService;
-	}
+	private ItemService itemService;
 
 	@APIResponses(value = {
 		@APIResponse(

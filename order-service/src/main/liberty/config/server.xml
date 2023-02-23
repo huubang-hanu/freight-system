@@ -11,7 +11,7 @@
                   httpPort="9081"
                   httpsPort="9445"/>
 
-    <webApplication location="${project.name}.war" contextRoot="${app.context.root}">
+    <webApplication location="order-service.war" contextRoot="/">
         <classloader apiTypeVisibility="+third-party" />
     </webApplication>
     <mpMetrics authentication="false"/>

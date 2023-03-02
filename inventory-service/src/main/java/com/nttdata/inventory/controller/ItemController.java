@@ -3,6 +3,7 @@ package com.nttdata.inventory.controller;
 import com.nttdata.inventory.repository.entity.Item;
 import com.nttdata.inventory.service.ItemService;
 import jakarta.annotation.PostConstruct;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
@@ -40,6 +41,7 @@ public class ItemController {
 					ref = "Item"))
 		)
 	})
+	@RolesAllowed("manager")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getAllItem() {
@@ -99,5 +101,13 @@ public class ItemController {
 		itemService.updateItem(id, item);
 
 		return Response.status(Response.Status.CREATED).entity(item.getId()).build();
+	}
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/{id}")
+	public Response getItemById(@PathParam("id") String id){
+		return Response.status(Response.Status.CREATED).entity(itemService.getItemById(id)).build();
 	}
 }

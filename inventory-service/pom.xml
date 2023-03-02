@@ -20,7 +20,6 @@
     <maven.compiler.source>11</maven.compiler.source>
     <final.name>inventory-service</final.name>
     <slf4j.api.version>1.7.30</slf4j.api.version>
-    <projectlombok.version>1.18.24</projectlombok.version>
   </properties>
   <dependencies>
     <dependency>
@@ -97,13 +96,7 @@
           <version>${slf4j.jdk.version}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-        <dependency>
-          <groupId>org.projectlombok</groupId>
-          <artifactId>lombok</artifactId>
-          <version>${projectlombok.version}</version>
-          <scope>provided</scope>
-        </dependency>
+
 
       </dependencies>
     </profile>

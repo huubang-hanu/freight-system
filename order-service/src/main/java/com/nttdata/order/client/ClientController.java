@@ -21,9 +21,6 @@ public class ClientController {
     @RestClient
     private Service service;
 
-    @Inject
-    Tracer tracer;
-
 
     @GET
     public Response fetchAllItem() {
@@ -35,4 +32,6 @@ public class ClientController {
     public Response fetchAllItemIds() {
         return service.getAllItemIds();
     }
+
+
 }

@@ -17,6 +17,7 @@ public class ItemService {
 	private List<Item> items = new ArrayList<>();
 	private Set<String> ids;
 
+
 	@PostConstruct
 	public void initItems() {
 		items.add(new Item("1", "Kubernetes in action", 10, 650));
@@ -43,9 +44,30 @@ public class ItemService {
 		return item.getId();
 	}
 
-	public String updateItem(String id, Item item) {
-		ids.add(item.getId());
-		items.add(item);
-		return item.getId();
+	public String updateItem(String id, Item newItem) {
+		Item existItem  = getItemById(id);
+
+		if(existItem != null){
+			newItem.setId(id);
+
+			items.remove(existItem);
+
+			items.add(newItem);
+
+			return id;
+		}
+
+		return null;
+	}
+
+	public Item getItemById(String id) {
+		if (ids.contains(id)) {
+			return items.stream()
+				.filter(item -> item.getId().equals(id))
+				.findFirst()
+				.orElse(null);
+		}
+
+		return null;
 	}
 }

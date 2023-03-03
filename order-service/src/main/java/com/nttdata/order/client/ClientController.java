@@ -1,6 +1,5 @@
-package com.nttdata.order.service.client;
+package com.nttdata.order.client;
 
-import io.opentracing.Tracer;
 import org.eclipse.microprofile.opentracing.Traced;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
@@ -14,23 +13,22 @@ import jakarta.ws.rs.core.Response;
 
 @Path("/client")
 @ApplicationScoped
-@Traced
 public class ClientController {
 
     @Inject
     @RestClient
-    private Service service;
+    private RestClientService restClientService;
 
 
     @GET
     public Response fetchAllItem() {
-        return service.getAllItem();
+        return restClientService.getAllItem();
     }
 
     @GET
     @Path("/ids")
     public Response fetchAllItemIds() {
-        return service.getAllItemIds();
+        return restClientService.getAllItemIds();
     }
 
 

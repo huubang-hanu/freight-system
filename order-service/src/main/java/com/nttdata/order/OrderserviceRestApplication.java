@@ -1,4 +1,4 @@
-package com.nttdata.order.service;
+package com.nttdata.order;
 
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
